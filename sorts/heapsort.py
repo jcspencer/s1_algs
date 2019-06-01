@@ -69,6 +69,8 @@ def extract_min(heap):
   # return the root node we popped
   return ret
 
+# BEST CASE: O(nlogn)
+# WORST CASE: O(nlogn)
 def heapsort(lst):
   # create an empty heap and fill it
   heap = [0]
@@ -85,3 +87,7 @@ def heapsort(lst):
     out.append(extract_min(heap))
 
   return out
+
+if __name__ == "__main__":
+  print(heapsort([5,4,3,2,1]))
+

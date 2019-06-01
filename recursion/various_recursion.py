@@ -30,6 +30,7 @@ def advanced_recursive_power(x, n):
   if n == 0:
     return 1
   elif n % 2 == 0:
+    # as n^2k = (n^k)(n^k)
     m = advanced_recursive_power(x, n / 2)
     return m * m
   else:

@@ -31,9 +31,13 @@ def bfs_distances(graph, s):
   return dists
 
 def neighbours(graph, v):
-  verticies = range(0, len(graph))
   connected = graph[v]
-  m = [a * b for a, b in zip(verticies, connected)]
+  n = []
 
-  return list(filter(lambda x: x != 0, m))
+  for index, c in enumerate(connected):
+    if c:
+      # this vertex is connected to 'v',
+      # so we add it to the list
+      n.append(index)
 
+  return n
