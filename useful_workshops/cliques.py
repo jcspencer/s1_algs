@@ -1,10 +1,41 @@
-#from solutionCode import *
 import itertools
 import copy
 
+def subset(lst, k, start, length, used, output):
+  # we've got a combination of length k
+  if length == k:
+    current = []
+    for i in range(len(lst)):
+      if used[i]:
+        current.append(lst[i])
+
+    output.append(current.copy())
+
+    return
+
+  # we've generated all possible combinations
+  if start == len(lst):
+    return
+
+  # for every index we have two options,
+
+  #1. we select it, so we put true in used[] and make currLen+1
+  used[start] = True
+  subset(lst, k, start + 1, length + 1, used, output)
+
+  # 2. we dont select it, so we put false in used[] and dont increase currLen
+  used[start] = False
+  subset(lst, k, start + 1, length, used, output)
+
+def pairs(lst):
+  out = []
+  used = [False] * len(lst)
+  subset(lst, 2, 0, 0, used, out)
+  return out
+
 def is_clique(S, G):
   # generate every pair
-  for (a, b) in itertools.combinations(S, 2):
+  for a, b in pairs(S):
     # is this pair disconnected?
     if G[a][b] == 0:
       # disconnected - not a clique
@@ -15,7 +46,7 @@ def is_clique(S, G):
 
 def is_indset(S, G):
   # generate every pair
-  for (a, b) in itertools.combinations(S, 2):
+  for (a, b) in pairs(S):
     # is this pair connecte?
     if G[a][b] == 1:
       # connected - not an independent set
