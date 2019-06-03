@@ -1,3 +1,7 @@
+# return an nxn matrix of zeroes
+def empty_graph(n):
+  return [[0] * n for _ in range(n)]
+
 # insert an undirectional edge from
 # vertex 'i' to 'j'
 def insert_edge(graph, i, j):
