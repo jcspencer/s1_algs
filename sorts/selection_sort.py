@@ -1,4 +1,5 @@
 # O(n)
+# invariant: 'm' is always the index of the minimum item in lst[0 to i].
 def min_index(lst):
   m = 0
 
@@ -12,6 +13,7 @@ def min_index(lst):
 
 # BEST CASE: O(n^2)
 # WORST CASE: O(n^2)
+# invariant: lst is sorted for first i elements.
 def selection_sort(lst):
   # iterate over every item
   for i in range(len(lst)):

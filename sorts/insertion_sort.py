@@ -1,5 +1,6 @@
 # BEST CASE: O(n)
 # WORST CASE: O(n^2)
+# invariant: subarray lst[0 to i-1] is always sorted.
 def insertion_sort(lst):
   # iterate over every item in the list
   for l in range(1, len(lst)):
