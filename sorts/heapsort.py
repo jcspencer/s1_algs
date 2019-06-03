@@ -13,18 +13,24 @@ def is_leaf(heap, i):
 
 def min_child(heap, i):
   n = len(heap) - 1
+
+  # indexes of children
   left = left_child(i)
   right = right_child(i)
 
+  # no children
   if (left > n or heap[left] is None) and (right > n or heap[left] is None):
     return None
 
+  # only a right child
   if (left > n or heap[left] is None):
     return right
 
+  # only a left child
   if (right > n or heap[right] is None):
     return left
 
+  # two children, get the smallest one
   if heap[left] > heap[right]:
     return right
   else:
