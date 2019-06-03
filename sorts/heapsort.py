@@ -84,7 +84,7 @@ def heapsort(lst):
     insert(heap, item)
 
   # fix up the heap if need be
-  min_heapify(heap, 0)
+  min_heapify(heap, 1)
 
   out = []
 
