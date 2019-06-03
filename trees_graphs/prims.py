@@ -18,8 +18,7 @@ def extension(connected, graph):
 def spanning_tree(graph):
   n = len(graph)
   tree = empty_graph(n)
-  r = random.randrange(0, n)
-  connected = [r]
+  connected = [0]
 
   while len(connected) < n:
     i, j = extension(connected, graph)
