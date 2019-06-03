@@ -31,7 +31,15 @@ def complement(G):
   # flip every value in the adjacency matrix
   for i in range(len(C)):
     for j in range(len(C)):
-      C[i][j] = ~C[i][j] & 1
+      # 1 - 1 = 0
+      # 1 - 0 = 1
+      C[i][j] = 1 - C[i][j]
+
+  # flip the diagonal back
+  # so that nodes are not connected
+  # to themselves if they weren't before
+  for i in range(len(C)):
+    C[i][i] = 1 - C[i][i]
 
   # return the complement
   return C
@@ -62,14 +70,14 @@ ex1 = [
   [0, 0, 0, 0, 1, 1, 0]
 ]
 
-ex1_comp =[
-  [1, 0, 1, 1, 1, 1, 1],
-  [0, 1, 0, 0, 1, 1, 1],
-  [1, 0, 1, 0, 0, 0, 1],
-  [1, 0, 0, 1, 0, 0, 1],
-  [1, 1, 0, 0, 1, 0, 0],
-  [1, 1, 0, 0, 0, 1, 0],
-  [1, 1, 1, 1, 0, 0, 1]
+ex1_comp = [
+  [0, 0, 1, 1, 1, 1, 1],
+  [0, 0, 0, 0, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 1],
+  [1, 1, 0, 0, 0, 0, 0],
+  [1, 1, 0, 0, 0, 0, 0],
+  [1, 1, 1, 1, 0, 0, 0]
 ]
 
 if __name__ == "__main__":
